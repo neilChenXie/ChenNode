@@ -21,7 +21,7 @@ profRoute.config(profHandler);
 */
 
 var Server = require('./server.js');
-server = new Server(3000);
+server = new Server(8000);
 
 //add route when needed
 server.profileConfig(profRoute);
