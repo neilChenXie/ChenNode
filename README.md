@@ -43,10 +43,12 @@
         >* client: 
 
 			```html
+
             	<script src="http://localhost:3000/socket.io/socket.io.js"></script>
              	<script>
                  	var socket = io("http://localhost:3000");
              	</script>        
+			
 			```
     
 	* this: [*refer*](http://book.mixu.net/node/ch4.html)
