@@ -41,13 +41,15 @@
     * socket.io:
         > * server: `sio.listen(3000)` use different **port** for communication
         >* client: 
+
 			```html
             	<script src="http://localhost:3000/socket.io/socket.io.js"></script>
              	<script>
                  	var socket = io("http://localhost:3000");
              	</script>        
 			```
-    * this: [*refer*](http://book.mixu.net/node/ch4.html)
+    
+	* this: [*refer*](http://book.mixu.net/node/ch4.html)
 	>* Specify at the call time <br>
 	>* `func.call` & `func.apply` 
 	>> same: specify **object**<br> diff: how to tranfer **additional arg** 
