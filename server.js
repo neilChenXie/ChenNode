@@ -1,7 +1,18 @@
 /*module needed*/
 var express = require("express");
 var path = require("path");
+var http = require("http");
+var sio  = require("socket.io");
 
+
+/*test field*/
+//var app = express();
+//newHttp = http.Server(this.sioApp);
+//newSio = sio(this.http);
+//newSio.sockets.on('connection', function(socket){
+//	console.log('one more connect');
+//});
+/************/
 
 /*constructor*/
 var Server = function(port) {
@@ -15,6 +26,27 @@ var Server = function(port) {
 
 
 //methods
+Server.prototype.sioConfig = function (router) {
+	this.sioApp = express();
+	this.app.use('/sio',this.sioApp);
+	
+	//configuration
+	this.sioApp.set('view engine','ejs');
+	this.sioApp.set('views',path.join(__dirname,'views')); //for html engine
+	
+	//use middlewware
+	this.sioApp.use(express.static(path.join(__dirname,'public'))); //for html links
+	
+	//router
+	this.sioApp.use('/',router);
+
+	//setup socket
+	this.sio = sio.listen(3000);
+	this.sio.on('connection', function(socket){
+		console.log('a user connected');
+	});
+};
+
 Server.prototype.profileConfig = function (router) {
 	//hook to server
 	this.chenProfile = express();
