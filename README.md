@@ -33,7 +33,7 @@ Supported project
 Experience
 ---------------
 * 6/22/2015
-	*[Markdown Tool](https://github.com/mixu/markdown-styles)
+	* [Markdown Tool](https://github.com/mixu/markdown-styles)
 * 6/21/2015
 	* Each module is like a  class, add  `.config` function to perform **constructor** function.
 * 6/19/2015
