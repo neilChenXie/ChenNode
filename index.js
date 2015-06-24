@@ -12,10 +12,12 @@ server = new Server(8000);
 */
 
 //sio
-var sioHandler = require('./handler/sio/sio.js');
+var sioDef = require('./handler/sio/siodef.js');
+var sioHandler = require('./handler/sio/siopage.js');
 var sioRoute = require('./routers/sio_route.js');
 sioRoute.config(sioHandler);
-server.sioConfig(sioRoute);
+server.sioConfig(sioRoute,sioDef);
+server.startSocket(); //start socket server
 
 //test
 var testHandler = require('./handler/test/test.js');
@@ -32,4 +34,4 @@ server.profileConfig(profRoute);
 /*
  * start the server
  */
-server.start();
+server.startServer();

@@ -17,16 +17,19 @@ var sio  = require("socket.io");
 /*constructor*/
 var Server = function(port) {
 	//this.port = process.env.PORT || 8080;
-	this.port = port || 8080;
+	process.env.SERPORT = port.serPort || 8080;
+	process.env.SIOPORT = port.sioPort || 8000;
+
 	//Project based
 	this.app = express();
 	
-	//start server
 };
 
 
 //methods
-Server.prototype.sioConfig = function (router) {
+//socket.io project
+Server.prototype.sioConfig = function (router,sioHandler) {
+	//hook to server
 	this.sioApp = express();
 	this.app.use('/sio',this.sioApp);
 	
@@ -39,14 +42,13 @@ Server.prototype.sioConfig = function (router) {
 	
 	//router
 	this.sioApp.use('/',router);
-
-	//setup socket
-	this.sio = sio.listen(3000);
-	this.sio.on('connection', function(socket){
-		console.log('a user connected');
-	});
+	
+	//socket.io defination
+	var mySio = this.sio = new sio();
+	sioHandler(mySio);
 };
 
+//profile project
 Server.prototype.profileConfig = function (router) {
 	//hook to server
 	this.chenProfile = express();
@@ -60,6 +62,7 @@ Server.prototype.profileConfig = function (router) {
 	this.chenProfile.use('/',router);
 };
 
+//test project
 Server.prototype.testConfig = function (router) {
 	//hook to server
 	this.serverTest = express();
@@ -70,12 +73,19 @@ Server.prototype.testConfig = function (router) {
 	this.serverTest.use('/',router);
 };
 
-
-Server.prototype.start = function () {
-	var tmpPort = this.port;
-	this.app.listen(tmpPort, function() {
-		console.log("server start with port:" + tmpPort);
+/*start all service*/
+//start main server
+Server.prototype.startServer = function () {
+	this.app.listen(process.env.SERPORT, function() {
+		console.log("server start with port:" + process.env.SERPORT);
 	});
+
+};
+//start socket server
+Server.prototype.startSocket = function() {
+	//start socket.io
+	this.sio.listen(process.env.SIOPORT);
+	console.log("socket start with port:" + process.env.SIOPORT);
 };
 
 module.exports = Server;
