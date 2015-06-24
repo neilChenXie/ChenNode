@@ -40,7 +40,7 @@
 
 ## Experience
 * 6/23/2015
-    * socket.io:
+    * socket.io: [*refer*](https://www.youtube.com/watch?v=nN6gFQMr3yU)
         >* server: `sio.listen(3000)` use different **port** for communication
         >* client: 
 
