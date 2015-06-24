@@ -1,5 +1,5 @@
 function sioDef (mySio) {
-	mySio.on("connection",conSuc);
+	mySio.of('bird').on("connection",conSuc);
 }
 
 function conSuc(socket) {

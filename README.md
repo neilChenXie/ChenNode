@@ -41,7 +41,7 @@
 ## Experience
 * 6/23/2015
     * socket.io:
-        > * server: `sio.listen(3000)` use different **port** for communication
+        >* server: `sio.listen(3000)` use different **port** for communication
         >* client: 
 
 		```html
@@ -50,7 +50,11 @@
              	var socket = io("http://localhost:3000");
          	</script>        
 		```
-    
+		>* Send a function which will be executed in front-end: just get data not page
+    	>* Namespace: use URL path to specify channels, server:
+		>* .broadcast.emit
+		>* chat room
+
 	* this: [*refer*](http://book.mixu.net/node/ch4.html)
 	>* Specify at the call time <br>
 	>* `func.call` & `func.apply` 
