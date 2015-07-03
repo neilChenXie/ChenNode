@@ -24,8 +24,8 @@
     * project_based_route.js
 * handler
     * folder_with_project_name
-        * project_handler.js 
-  
+        * project_handler.js
+
 ## Module
 
 * socket.io
@@ -36,19 +36,25 @@
 
 ### socket.io test
 ### profile
+Based on **Hexo** blog system, 
 ### test
 
 ## Experience
+
+* 7/3/2015
+    * add support for **Hexo** blog
+    * deeper understand express.static()
+
 * 6/23/2015
     * socket.io: [*refer*](https://www.youtube.com/watch?v=nN6gFQMr3yU)
         >* server: `sio.listen(3000)` use different **port** for communication
-        >* client: 
+        >* client:
 
 		```html
         	<script src="http://localhost:3000/socket.io/socket.io.js"></script>
          	<script>
              	var socket = io("http://localhost:3000");
-         	</script>        
+         	</script>
 		```
 		>* Send a function which will be executed in front-end: just get data not page
     	>* Namespace: use URL path to specify channels, server:
@@ -57,8 +63,8 @@
 
 	* this: [*refer*](http://book.mixu.net/node/ch4.html)
 	>* Specify at the call time <br>
-	>* `func.call` & `func.apply` 
-	>> same: specify **object**<br> diff: how to tranfer **additional arg** 
+	>* `func.call` & `func.apply`
+	>> same: specify **object**<br> diff: how to tranfer **additional arg**
 * 6/22/2015
     * [Markdown Tool](https://github.com/mixu/markdown-styles)
 * 6/21/2015
