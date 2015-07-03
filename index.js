@@ -1,13 +1,13 @@
 /*
- * create server 
- * with choosable 
+ * create server
+ * with choosable
  * functions
 */
 var Server = require('./server.js');
 server = new Server(8000);
 
 /*
- * project based 
+ * project based
  * configuration
 */
 
