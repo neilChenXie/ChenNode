@@ -17,8 +17,8 @@ var sio  = require("socket.io");
 /*constructor*/
 var Server = function(port) {
 	//this.port = process.env.PORT || 8080;
-	process.env.SERPORT = port.serPort || 8080;
-	process.env.SIOPORT = port.sioPort || 8000;
+	process.env.SERPORT = port.serPort || 8000;
+	process.env.SIOPORT = port.sioPort || 8100;
 
 	//Project based
 	this.app = express();
