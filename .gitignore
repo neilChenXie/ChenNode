@@ -1,4 +1,4 @@
 .*.swp
 *.[oa] *~
 /node_modules/
-/public/profile/
+/public/profile
