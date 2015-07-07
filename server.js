@@ -54,8 +54,8 @@ Server.prototype.blogConfig = function () {
 	this.app.use('/blog',this.chenBlog);
 
 	//Project Configuration
-	this.chenProfile.set('view engine','ejs');
-	this.chenProfile.set('views',path.join(__dirname,'views')); //for html engine
+	//this.chenProfile.set('view engine','ejs');
+	//this.chenProfile.set('views',path.join(__dirname,'views')); //for html engine
 	
 	//use middlewware
 	this.chenBlog.use(express.static(path.join(__dirname,'public/blog'))); //for html links
