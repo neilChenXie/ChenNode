@@ -54,14 +54,15 @@ Server.prototype.profileConfig = function (router) {
 	this.app.use('/profile',this.chenProfile);
 
 	//Project Configuration
-	//this.chenProfile.set('view engine','ejs');
-	//this.chenProfile.set('views',path.join(__dirname,'views')); //for html engine
+	this.chenProfile.set('view engine','ejs');
+	this.chenProfile.set('views',path.join(__dirname,'views')); //for html engine
 	
 	//use middlewware
-	this.chenProfile.use(express.static(path.join(__dirname,'public/profile'))); //for html links
+	//this.chenProfile.use(express.static(path.join(__dirname,'public/profile'))); //for html links
+	this.chenProfile.use(express.static(path.join(__dirname, 'public/profile'))); //for html links
 	
 	//router
-	this.chenProfile.use('/',router);//not used for my blog
+	//this.chenProfile.use('/',router);//not used for my blog
 };
 
 //test project
