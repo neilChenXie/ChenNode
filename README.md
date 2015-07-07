@@ -42,6 +42,7 @@ Based on **Hexo** blog system,
 ## Experience
 
 * 7/7/2015
+	* start when bootup BeagleBone
 	* merge **BeagleBone** branch to **master**
 
 * 7/3/2015
