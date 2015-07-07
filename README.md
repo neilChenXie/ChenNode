@@ -41,6 +41,9 @@ Based on **Hexo** blog system,
 
 ## Experience
 
+* 7/7/2015
+	* merge **BeagleBone** branch to **master**
+
 * 7/3/2015
     * add support for **Hexo** blog
     * deeper understand express.static()
