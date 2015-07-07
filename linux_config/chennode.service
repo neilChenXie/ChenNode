@@ -1,0 +1,7 @@
+[Unit]
+Description=chen-node booter
+
+[Service]
+WorkindDirectory=/root/ChenNode/
+ExecStart=/usr/local/bin/forever index.js
+
