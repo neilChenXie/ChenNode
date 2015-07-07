@@ -47,19 +47,18 @@ Server.prototype.sioConfig = function (router,sioHandler) {
 	sioHandler(mySio);
 };
 
-//profile project
-Server.prototype.profileConfig = function (router) {
+//blog project
+Server.prototype.blogConfig = function () {
 	//hook to server
-	this.chenProfile = express();
-	this.app.use('/profile',this.chenProfile);
+	this.chenBlog = express();
+	this.app.use('/blog',this.chenBlog);
 
 	//Project Configuration
 	this.chenProfile.set('view engine','ejs');
 	this.chenProfile.set('views',path.join(__dirname,'views')); //for html engine
 	
 	//use middlewware
-	//this.chenProfile.use(express.static(path.join(__dirname,'public/profile'))); //for html links
-	this.chenProfile.use(express.static(path.join(__dirname, 'public/profile'))); //for html links
+	this.chenBlog.use(express.static(path.join(__dirname,'public/blog'))); //for html links
 	
 	//router
 	//this.chenProfile.use('/',router);//not used for my blog

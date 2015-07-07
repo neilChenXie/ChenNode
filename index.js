@@ -17,7 +17,8 @@ var sioHandler = require('./handler/sio/siopage.js');
 var sioRoute = require('./routers/sio_route.js');
 sioRoute.config(sioHandler);
 server.sioConfig(sioRoute,sioDef);
-server.startSocket(); //start socket server
+//start socket server
+server.startSocket();
 
 //test
 var testHandler = require('./handler/test/test.js');
@@ -25,11 +26,12 @@ var testRoute = require('./routers/test_route.js');
 testRoute.config(testHandler);
 server.testConfig(testRoute);
 
-//profile
-var profHandler = require('./handler/profile/profile.js');
-var profRoute = require('./routers/profile_route.js');
-profRoute.config(profHandler);
-server.profileConfig(profRoute);
+//hexo blog
+//var profHandler = require('./handler/profile/profile.js');
+//var profRoute = require('./routers/profile_route.js');
+//profRoute.config(profHandler);
+//server.profileConfig(profRoute);
+server.blogConfig();
 
 /*
  * start the server
