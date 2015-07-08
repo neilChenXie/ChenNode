@@ -36,13 +36,22 @@
 
 ### socket.io test
 ### profile
-Based on **Hexo** blog system, 
+Based on **Hexo** blog system,
 ### test
 
 ## Experience
-
 * 7/7/2015
 	* start when bootup BeagleBone
+	> `linux_config/chennode.sh` which should be put under `/etc/init.d/`<br>
+	```bash
+	#make executable
+	chmod +x filename
+	#create
+	update-rc.d filename defaults
+	#delete
+	update-rc.d -f filename remove
+	```
+
 	* merge **BeagleBone** branch to **master**
 
 * 7/3/2015
