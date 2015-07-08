@@ -46,15 +46,15 @@ Based on **Hexo** blog system,
 
   * start when bootup BeagleBone
 
-  >`linux_config/chennode.sh` which should be put under `/etc/init.d/`
-	```bash
-	#make executable
-	chmod +x filename
-	#create
-	update-rc.d filename defaults
-	#delete
-	update-rc.d -f filename remove
-	```
+    >`linux_config/chennode.sh` which should be put under `/etc/init.d/`
+	  ```bash
+	  #make executable
+	  chmod +x filename
+	  #create
+	  update-rc.d filename defaults
+	  #delete
+	  update-rc.d -f filename remove
+	  ```
 
 	* merge **BeagleBone** branch to **master**
 
