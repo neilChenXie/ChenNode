@@ -64,13 +64,12 @@ Based on **Hexo** blog system,
     * socket.io: [*refer*](https://www.youtube.com/watch?v=nN6gFQMr3yU)
     > server: `sio.listen(3000)` use different **port** for communication<br>
     client:
-
-      ```html
-        <script src="http://localhost:3000/socket.io/socket.io.js"></script>
-        <script>
-            var socket = io("http://localhost:3000");
-        </script>
-		  ```
+    ```html
+      <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+      <script>
+          var socket = io("http://localhost:3000");
+      </script>
+    ```
 
     > Send a function which will be executed in front-end: just get data not page<br>
     > Namespace: use URL path to specify channels, server:<br>
