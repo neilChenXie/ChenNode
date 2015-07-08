@@ -62,7 +62,8 @@ Based on **Hexo** blog system,
 
 * 6/23/2015
     * socket.io: [*refer*](https://www.youtube.com/watch?v=nN6gFQMr3yU)
-    > server: `sio.listen(3000)` use different **port** for communication<br>
+
+    >server: `sio.listen(3000)` use different **port** for communication<br>
     client:
     ```html
       <script src="http://localhost:3000/socket.io/socket.io.js"></script>
