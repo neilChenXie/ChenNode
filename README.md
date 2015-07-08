@@ -67,24 +67,27 @@ Based on **Hexo** blog system,
 * 6/23/2015
   * socket.io: [*refer*](https://www.youtube.com/watch?v=nN6gFQMr3yU)
 
-  >server: `sio.listen(3000)` use different **port** for communication
-  client:
-  ```html
-  <script src="http://localhost:3000/socket.io/socket.io.js"></script>
-  <script>
+    >server: `sio.listen(3000)` use different **port** for communication
+    client:
+    ```html
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script>
             var socket = io("http://localhost:3000");
-  </script>
-  ```
+    </script>
+    ```
 
-  >Send a function which will be executed in front-end: just get data not page
-  namespace: use URL path to specify channels, server:<br>.broadcast.emit<br>chat room
+    >Send a function which will be executed in front-end: just get data not page
+    namespace: use URL path to specify channels,
+    server:
+    .broadcast.emit
+    chat room
 
   * this: [*refer*](http://book.mixu.net/node/ch4.html)
 
-  >Specify at the call time
-  `func.call` & `func.apply`
-  same: specify **object**<br>
-  diff: how to tranfer **additional arg**
+    >Specify at the call time
+    `func.call` & `func.apply`
+    same: specify **object**<br>
+    diff: how to tranfer **additional arg**
 
 * 6/22/2015
 
@@ -98,7 +101,7 @@ Based on **Hexo** blog system,
 
   * plain design: define function separatly, **require & chain** them together at the **index** file
 
-  > separation rule is decided with characteristic of projects
+    > separation rule is decided with characteristic of projects
 
 * 6/18/2015
 
