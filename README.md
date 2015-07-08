@@ -5,6 +5,8 @@
 * A Node.js platform can support "all" kinds of project.
 * Good separation between different projects with easy to add/delete features.
 
+ *Key words:* **Node.js, Express, BeagleBone**
+
 ## Hardware
 
 ### BeagleBone
