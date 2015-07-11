@@ -22,6 +22,7 @@ var Server = function(port) {
 
 	//Project based
 	this.app = express();
+	this.app.use(express.static(path.join(__dirname,'public/intro'))); //for html links
 };
 
 

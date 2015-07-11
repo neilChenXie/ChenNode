@@ -110,3 +110,9 @@ Based on **Hexo** blog system,
 * 6/16/2015
 
 * 6/15/2015
+
+##ToDo list
+
+* add **function present link** in README
+
+* Finish **Socket.io** and **FireBase**
