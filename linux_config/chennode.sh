@@ -8,7 +8,7 @@
 # The following part carries out specific functions depending on arguments.
 case "$1" in
 	start)
-		/usr/bin/forever ~/ChenNode/index.js
+		forever start ~/ChenNode/index.js
 		;;
 	stop)
 		#echo "Stopping foobar"
