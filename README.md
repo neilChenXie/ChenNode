@@ -145,3 +145,13 @@
 * add **function present link** in README
 
 * Finish **Socket.io** and **FireBase**
+
+##Node.js Experience
+
+###Design
+
+###Reference
+
+* [Node.js是用来做什么的](http://www.zhihu.com/question/33578075/answer/56951771)
+
+* [Node.js is the New Black](http://www.sitepoint.com/node-js-is-the-new-black/)
