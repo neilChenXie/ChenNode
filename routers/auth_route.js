@@ -12,4 +12,12 @@ router.get('/register', function(req, res){
 router.get('/login', function(req, res){
 	res.render('login.jade');
 });
+
+router.get('/logout', function(req,res){
+	res.redirect('/auth');
+});
+
+router.get('/dashboard', function(req, res){
+	res.render('dashboard.jade');
+});
 module.exports = router;
