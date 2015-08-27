@@ -30,6 +30,20 @@ var Server = function(port) {
 
 
 //methods
+//auth project
+Server.prototype.authConfig = function (router) {
+	//hock to server
+	this.authApp = express();
+	this.app.use('/auth', this.authApp);
+
+	//configuration
+	this.authApp.set('view engine', 'jade');
+	this.authApp.set('views', path.join(__dirname,'views/auth'));
+
+	//router
+	this.authApp.use('/', router);
+};
+
 //socket.io project
 Server.prototype.sioConfig = function (router,sioHandler) {
 	//hook to server

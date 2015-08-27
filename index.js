@@ -11,6 +11,10 @@ server = new Server(8000);
  * configuration
 */
 
+// auth 
+var authRouter = require('./routers/auth_route');
+server.authConfig(authRouter);
+
 //sio
 var sioDef = require('./handler/sio/siodef.js');
 var sioHandler = require('./handler/sio/siopage.js');
