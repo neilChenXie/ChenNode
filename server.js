@@ -3,6 +3,7 @@ var express = require("express");
 var path = require("path");
 var http = require("http");
 var sio  = require("socket.io");
+var bodyParser = require("body-parser");
 
 
 /*test field*/
@@ -37,8 +38,12 @@ Server.prototype.authConfig = function (router) {
 	this.app.use('/auth', this.authApp);
 
 	//configuration
+	this.authApp.locals.pretty = true;//not minify html
 	this.authApp.set('view engine', 'jade');
 	this.authApp.set('views', path.join(__dirname,'views/auth'));
+
+	//middleware
+	this.authApp.use(bodyParser.urlencoded({ extended:true }));
 
 	//router
 	this.authApp.use('/', router);
