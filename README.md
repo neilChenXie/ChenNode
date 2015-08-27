@@ -9,45 +9,45 @@
 
 ## Hardware
 
-### BeagleBone
-* Debian Linux
-    * start when bootup BeagleBone
+### BeagleBone with Debian
 
-        >`linux_config/chennode.sh` which should be put under `/etc/init.d/`
-        ```bash
-        #make executable
-        chmod +x filename
-        #create
-        update-rc.d filename defaults
-        #delete
-        update-rc.d -f filename remove
-        ```
+#### Start app when booting
+```bash
+#`linux_config/chennode.sh` which should be put under `/etc/init.d/`
+
+#make executable
+chmod +x filename
+#create
+update-rc.d filename defaults
+#delete
+update-rc.d -f filename remove
+```
 
 ## Structure
 
-* index.js
+### index.js
 
-     * hook **handler** to **routes**
+ * hook **handler** to **routes**
 
-     * create **server**
+ * create **server**
 
-     * `node index.js` to start
+ * `node index.js` to start
 
-* server.js
+### server.js
 
-    * hook **projects** to major **app**
+* hook **projects** to major **app**
 
-    *  hook **routes** to **projects**
+*  hook **routes** to **projects**
 
-* routes
+### routes
 
-    * project_based_route.js
+* project_based_route.js
 
-* handler
+### handler
 
-    * folder_with_project_name
+* folder_with_project_name
 
-        >* project_handler.js
+    > project_handler.js
 
 ## Module
 
@@ -59,9 +59,26 @@
 
 ## Supported project
 
+### MongoDB
+
+#### Setup
+```bash
+#Ubuntu
+# add GPG key
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+# list file
+echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
+# install
+sudo apt-get update
+sudo apt-get install mongodb-org
+
+#start service
+sudo service mongod start
+```
+
 ### socket.io
 
-* [*reference*](https://www.youtube.com/watch?v=nN6gFQMr3yU)
+[*reference*](https://www.youtube.com/watch?v=nN6gFQMr3yU)
 
 * server: `sio.listen(3000)` use different **port** for communication
 
@@ -140,17 +157,17 @@
 
 * 6/15/2015
 
-##ToDo list
+## ToDo list
 
 * add **function present link** in README
 
 * Finish **Socket.io** and **FireBase**
 
-##Node.js Experience
+## Node.js Experience
 
-###Design
+### Design
 
-###Reference
+### Reference
 
 * [Node.js是用来做什么的](http://www.zhihu.com/question/33578075/answer/56951771)
 

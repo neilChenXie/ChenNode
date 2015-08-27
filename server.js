@@ -22,7 +22,10 @@ var Server = function(port) {
 
 	//Project based
 	this.app = express();
-	this.app.use(express.static(path.join(__dirname,'public/intro'))); //for html links
+	//this.app.use(express.static(path.join(__dirname,'public/intro'))); //for html links
+	this.app.get('/', function(req,res){
+		res.redirect(301,'https://github.com/neilChenXie/ChenNode');
+	});
 };
 
 
