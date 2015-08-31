@@ -4,7 +4,8 @@ var path = require("path");
 var http = require("http");
 var sio  = require("socket.io");
 var bodyParser = require("body-parser");
-
+var passport = require("passport");
+var session = require("express-session");
 
 /*test field*/
 //var app = express();
@@ -43,6 +44,13 @@ Server.prototype.authConfig = function (router) {
 	this.authApp.set('views', path.join(__dirname,'views/auth'));
 
 	//middleware
+	//session
+	this.authApp.use(session({
+		secret: 'cxfwescvssd'
+	}));
+	this.authApp.use(passport.initialize());
+	this.authApp.use(passport.session());
+	//body
 	this.authApp.use(bodyParser.urlencoded({ extended:true }));
 
 	//router

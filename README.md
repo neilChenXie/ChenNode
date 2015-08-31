@@ -2,10 +2,29 @@
 
 ## Description
 
-* A Node.js platform can support "all" kinds of project.
-* Good separation between different projects with easy to add/delete features.
+* Carefully Designed Node.js server platform, based on Express.js, support multiple projects with different pathname.
+* Provide good separation between projects to achieve easy to add/delete goal.
 
- *Key words:* **Node.js, Express, BeagleBone**
+*Key words:* **Node.js, Express, Socket.io, Passport BeagleBone**
+
+## projects
+
+### Hexo blog system
+
+>project is based on **Hexo** blog system.
+
+[www.chen-node.com/blog](http://www.chen-node.com/blog)
+
+Github: [ChenBlog](https://github.com/neilChenXie/ChenBlog)
+### Real-time Chatroom with Socket.io
+
+[www.chen-node.com/socketio](http://www.chen-node.com/socketio)
+
+### Test
+
+> JSON Restful API test
+
+[www.chen-node.com/test](http://www.chen-node.com/test)
 
 ## Hardware
 
@@ -23,7 +42,7 @@ update-rc.d filename defaults
 update-rc.d -f filename remove
 ```
 
-## Structure
+## Server Structure
 
 ### index.js
 
@@ -39,11 +58,11 @@ update-rc.d -f filename remove
 
 *  hook **routes** to **projects**
 
-### routes
+### routes/
 
 * project_based_route.js
 
-### handler
+### handler/
 
 * folder_with_project_name
 
@@ -51,13 +70,17 @@ update-rc.d -f filename remove
 
 ## Module
 
-* socket.io
-
 * Express
 
-* ejs
+* Socket.io
 
-## Supported project
+* Passport
+
+* ejs/jade
+
+* mongoose
+
+## Experience
 
 ### MongoDB
 
@@ -76,42 +99,37 @@ sudo apt-get install mongodb-org
 sudo service mongod start
 ```
 
-### socket.io
+### Socket.io
 
-[*reference*](https://www.youtube.com/watch?v=nN6gFQMr3yU)
-
-* server: `sio.listen(3000)` use different **port** for communication
-
-* client:
-
-    ```html
-    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
-    <script>
-        var socket = io("http://localhost:3000");
-    </script>
-    ```
+#### server:
+>`sio.listen(3000)` use different **port** for communication
 
 * Send a function which will be executed in front-end: just get data not page
 
+#### client:
+
+```html
+<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+<script>
+    var socket = io("http://localhost:3000");
+</script>
+```
+
 * namespace: use URL path to specify channels
 
-* Application
+#### Application
 
-    * server:
+* server:
 
-    * .broadcast.emit
+* .broadcast.emit
 
-    * chat room
+* chat room
 
-### Blog
+#### Reference
 
-* [ChenBlog](https://github.com/neilChenXie/ChenBlog) project is based on **Hexo** blog system. The link is Github link for more details
+* [*youtube*](https://www.youtube.com/watch?v=nN6gFQMr3yU)
 
-### test
-
-* `/test/` for `Hello World`
-
-## Experience
+## Log
 
 * 7/7/2015
 
@@ -126,32 +144,34 @@ sudo service mongod start
   * deeper understand express.static()
 
 * 6/23/2015
-  * socket.io:
 
-  * this: [*refer*](http://book.mixu.net/node/ch4.html)
+    * socket.io:
 
-    >Specify at the call time
-    `func.call` & `func.apply`
-    same: specify **object**<br>
-    diff: how to tranfer **additional arg**
+
+    * this: [*refer*](http://book.mixu.net/node/ch4.html)
+
+        >Specify at the call time
+        `func.call` & `func.apply`
+        same: specify **object**<br>
+        diff: how to tranfer **additional arg**
 
 * 6/22/2015
 
-  * [Markdown Tool](https://github.com/mixu/markdown-styles)
+    * [Markdown Tool](https://github.com/mixu/markdown-styles)
 
 * 6/21/2015
 
-  * Each module is like a  class, add  `.config` function to perform **constructor** function.
+    * Each module is like a  class, add  `.config` function to perform **constructor** function.
 
 * 6/19/2015
 
-  * plain design: define function separately, **require & chain** them together at the **index** file
+    * plain design: define function separately, **require & chain** them together at the **index** file
 
-    > separation rule is decided with characteristic of projects
+        > separation rule is decided with characteristic of projects
 
 * 6/18/2015
 
-  * a module can `return` a **function** or **object**
+    * a module can `return` a **function** or **object**
 
 * 6/16/2015
 
