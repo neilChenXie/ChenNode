@@ -30,7 +30,10 @@ Github: [ChenBlog](https://github.com/neilChenXie/ChenBlog)
 
 ### BeagleBone with Debian
 
+![BeagleBone](http://www.chen-node.com/blog/photo/ChenNodeBBB.jpg)
+
 #### Start app when booting
+
 ```bash
 #`linux_config/chennode.sh` which should be put under `/etc/init.d/`
 
