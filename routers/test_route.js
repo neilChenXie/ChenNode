@@ -2,8 +2,9 @@ var express = require('express');
 var router = express.Router();//new router object
 
 /*router configuration*/
-router.config = function (handler) {
-	router.get('/',handler.helloWorld);
-};
+router.get('/', function(req,res){
+	res.send("world");
+	//console.log(req.cookies);
+});
 
 module.exports = router;

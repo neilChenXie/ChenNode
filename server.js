@@ -2,10 +2,12 @@
 var express = require("express");
 var path = require("path");
 var http = require("http");
-var sio  = require("socket.io");
-var bodyParser = require("body-parser");
-var passport = require("passport");
-var session = require("express-session");
+var morgan = require('morgan');
+
+/*project*/
+var test_project = require('./projTest');
+var auth_project = require('./projAuth');
+var blog_project = require('./projBlog');
 
 /*test field*/
 //var app = express();
@@ -24,87 +26,40 @@ var Server = function(port) {
 
 	//Project based
 	this.app = express();
-	//this.app.use(express.static(path.join(__dirname,'public/intro'))); //for html links
+	this.app.use(morgan('dev'));
+	
+	//redirect to github 
 	this.app.get('/', function(req,res){
 		res.redirect(301,'https://github.com/neilChenXie/ChenNode');
 	});
+
+	//add project
+	test_project(this.app);
+	auth_project(this.app);
+	blog_project(this.app);
 };
 
-
-//methods
-//auth project
-Server.prototype.authConfig = function (router) {
-	//hock to server
-	this.authApp = express();
-	this.app.use('/auth', this.authApp);
-
-	//configuration
-	this.authApp.locals.pretty = true;//not minify html
-	this.authApp.set('view engine', 'jade');
-	this.authApp.set('views', path.join(__dirname,'views/auth'));
-
-	//middleware
-	//session
-	this.authApp.use(session({
-		secret: 'cxfwescvssd'
-	}));
-	this.authApp.use(passport.initialize());
-	this.authApp.use(passport.session());
-	//body
-	this.authApp.use(bodyParser.urlencoded({ extended:true }));
-
-	//router
-	this.authApp.use('/', router);
-};
 
 //socket.io project
-Server.prototype.sioConfig = function (router,sioHandler) {
-	//hook to server
-	this.sioApp = express();
-	this.app.use('/sio',this.sioApp);
+//Server.prototype.sioConfig = function (router,sioHandler) {
+	////hook to server
+	//this.sioApp = express();
+	//this.app.use('/sio',this.sioApp);
 	
-	//configuration
-	this.sioApp.set('view engine','ejs');
-	this.sioApp.set('views',path.join(__dirname,'views')); //for html engine
+	////configuration
+	//this.sioApp.set('view engine','ejs');
+	//this.sioApp.set('views',path.join(__dirname,'views')); //for html engine
 	
-	//use middlewware
-	this.sioApp.use(express.static(path.join(__dirname,'public'))); //for html links
+	////use middlewware
+	//this.sioApp.use(express.static(path.join(__dirname,'public'))); //for html links
 	
-	//router
-	this.sioApp.use('/',router);
+	////router
+	//this.sioApp.use('/',router);
 	
-	//socket.io defination
-	var mySio = this.sio = new sio();
-	sioHandler(mySio);
-};
-
-//blog project
-Server.prototype.blogConfig = function () {
-	//hook to server
-	this.chenBlog = express();
-	this.app.use('/blog',this.chenBlog);
-
-	//Project Configuration
-	//this.chenProfile.set('view engine','ejs');
-	//this.chenProfile.set('views',path.join(__dirname,'views')); //for html engine
-	
-	//use middlewware
-	this.chenBlog.use(express.static(path.join(__dirname,'public/blog'))); //for html links
-	
-	//router
-	//this.chenProfile.use('/',router);//not used for my blog
-};
-
-//test project
-Server.prototype.testConfig = function (router) {
-	//hook to server
-	this.serverTest = express();
-	this.app.use('/test',this.serverTest);
-	//Project Configuration
-	//use middlewware
-	//router
-	this.serverTest.use('/',router);
-};
+	////socket.io defination
+	//var mySio = this.sio = new sio();
+	//sioHandler(mySio);
+//};
 
 /*start all service*/
 //start main server
@@ -114,11 +69,12 @@ Server.prototype.startServer = function () {
 	});
 
 };
+
 //start socket server
-Server.prototype.startSocket = function() {
-	//start socket.io
-	this.sio.listen(process.env.SIOPORT);
-	console.log("socket start with port:" + process.env.SIOPORT);
-};
+//Server.prototype.startSocket = function() {
+	////start socket.io
+	//this.sio.listen(process.env.SIOPORT);
+	//console.log("socket start with port:" + process.env.SIOPORT);
+//};
 
 module.exports = Server;

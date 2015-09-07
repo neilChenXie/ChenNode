@@ -134,6 +134,12 @@ sudo service mongod start
 
 ## Log
 
+* 9/7/2015
+	
+	* change all project as middleware, make them more separated
+
+	* add auth project with passport
+
 * 7/7/2015
 
   * start when bootup BeagleBone

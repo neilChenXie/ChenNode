@@ -11,31 +11,14 @@ server = new Server(8000);
  * configuration
 */
 
-// auth 
-var authRouter = require('./routers/auth_route');
-server.authConfig(authRouter);
-
 //sio
-var sioDef = require('./handler/sio/siodef.js');
-var sioHandler = require('./handler/sio/siopage.js');
-var sioRoute = require('./routers/sio_route.js');
-sioRoute.config(sioHandler);
-server.sioConfig(sioRoute,sioDef);
-//start socket server
-server.startSocket();
-
-//test
-var testHandler = require('./handler/test/test.js');
-var testRoute = require('./routers/test_route.js');
-testRoute.config(testHandler);
-server.testConfig(testRoute);
-
-//hexo blog
-//var profHandler = require('./handler/profile/profile.js');
-//var profRoute = require('./routers/profile_route.js');
-//profRoute.config(profHandler);
-//server.profileConfig(profRoute);
-server.blogConfig();
+//var sioDef = require('./handler/sio/siodef.js');
+//var sioHandler = require('./handler/sio/siopage.js');
+//var sioRoute = require('./routers/sio_route.js');
+//sioRoute.config(sioHandler);
+//server.sioConfig(sioRoute,sioDef);
+////start socket server
+//server.startSocket();
 
 /*
  * start the server
