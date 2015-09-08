@@ -6,7 +6,15 @@ module.exports = function(app) {
 	var session = require("express-session");
 	var cookieParser = require('cookie-parser');
 	var passport = require("passport");
-	var router = require('./routers/auth_route');
+	var router = require('./routers/newauth_route');
+
+	//connect to database
+	var mongoose = require('mongoose');
+	var configDB = require('./config/database');
+
+	//DB connection
+	mongoose.connect(configDB.url)
+
 
 	//application
 	var auth = express();
