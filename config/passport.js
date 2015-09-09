@@ -34,7 +34,7 @@ module.exports = function(passport) {
 					newUser.firstName = req.body.firstName;
 					newUser.lastName = req.body.lastName;
 					newUser.email = email;
-					newUser.password = password;
+					newUser.password = newUser.generateHash(password); //bcrypt
 
 					newUser.save(function(err){
 						if (err)
@@ -62,7 +62,7 @@ module.exports = function(passport) {
 					return done(null, false, req.flash('loginMessage', 'Invalid login'));
 				}
 				else {
-					if (user.password != password) {
+					if (!user.validPassword(password)) {
 						return done(null, false, req.flash('loginMessage', 'Invalid login'));
 					} else {
 						return done(null, user);
