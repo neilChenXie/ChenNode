@@ -24,4 +24,7 @@ block body
     input(type="password", name="password", required=true)
     br
 
+    if error
+        p ERROR: #{error}
+
     input(type="submit")

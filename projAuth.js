@@ -6,14 +6,14 @@ module.exports = function(app) {
 	var session = require("express-session");
 	var cookieParser = require('cookie-parser');
 	var passport = require("passport");
-	var router = require('./routers/newauth_route');
+	var flash = require("connect-flash");
 
 	//connect to database
 	var mongoose = require('mongoose');
 	var configDB = require('./config/database');
 
 	//DB connection
-	mongoose.connect(configDB.url)
+	mongoose.connect(configDB.url);
 
 
 	//application
@@ -42,9 +42,13 @@ module.exports = function(app) {
 	//passport neeeded
 	auth.use(passport.initialize());
 	auth.use(passport.session());
+	auth.use(flash());
+
+	require('./config/passport')(passport);
 
 
 	//router
-	auth.use('/', router);
+	var router = require('./routers/newauth_route');
+	auth.use('/', router(passport));
 
 };
