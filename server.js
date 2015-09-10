@@ -6,8 +6,9 @@ var morgan = require('morgan');
 
 /*project*/
 var test_project = require('./projTest');
-var auth_project = require('./projAuth');
+//var auth_project = require('./projAuth');
 var blog_project = require('./projBlog');
+var sql_project = require('./projSQL');
 
 /*test field*/
 //var app = express();
@@ -35,8 +36,9 @@ var Server = function(port) {
 
 	//add project
 	test_project(this.app);
-	auth_project(this.app);
+	//auth_project(this.app);
 	blog_project(this.app);
+	sql_project(this.app);
 };
 
 

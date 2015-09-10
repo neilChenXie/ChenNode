@@ -50,5 +50,4 @@ module.exports = function(app) {
 	//router
 	var router = require('./routers/newauth_route');
 	auth.use('/', router(passport));
-
 };
