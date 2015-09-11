@@ -5,10 +5,10 @@ var http = require("http");
 var morgan = require('morgan');
 
 /*project*/
-var test_project = require('./projTest');
-//var auth_project = require('./projAuth');
-var blog_project = require('./projBlog');
-var sql_project = require('./projSQL');
+var test_project = require('./apitest/apitest');
+var mongo_auth = require('./mongoauth/mongoauth');
+//var sql_auth = require('./sqlauth/sqlauth');
+var blog_project = require('./hexoblog/hexoblog');
 
 /*test field*/
 //var app = express();
@@ -21,7 +21,7 @@ var sql_project = require('./projSQL');
 
 /*constructor*/
 var Server = function(port) {
-	//this.port = process.env.PORT || 8080;
+
 	process.env.SERPORT = port.serPort || 8000;
 	process.env.SIOPORT = port.sioPort || 8100;
 
@@ -36,9 +36,9 @@ var Server = function(port) {
 
 	//add project
 	test_project(this.app);
-	//auth_project(this.app);
 	blog_project(this.app);
-	sql_project(this.app);
+	//sql_auth(this.app);
+	mongo_auth(this.app);
 };
 
 

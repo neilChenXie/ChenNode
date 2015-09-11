@@ -1,17 +1,17 @@
+var path = require("path");
+var express = require('express');
+var bodyParser = require("body-parser");
+var session = require("express-session");
+var cookieParser = require('cookie-parser');
+var passport = require("passport");
+var flash = require("connect-flash");
+
+//connect to database
+var mongoose = require('mongoose');
+var configDB = require('./config/database');
+
 module.exports = function(app) {
-	//module
-	var path = require("path");
-	var express = require('express');
-	var bodyParser = require("body-parser");
-	var session = require("express-session");
-	var cookieParser = require('cookie-parser');
-	var passport = require("passport");
-	var flash = require("connect-flash");
-
-	//connect to database
-	var mongoose = require('mongoose');
-	var configDB = require('./config/database');
-
+	
 	//DB connection
 	mongoose.connect(configDB.url);
 
@@ -23,7 +23,7 @@ module.exports = function(app) {
 	//configuration
 	auth.locals.pretty = true;//not minify html
 	auth.set('view engine', 'jade');
-	auth.set('views', path.join(__dirname,'views/auth'));
+	auth.set('views', path.join(__dirname,'views'));
 
 	//middleware
 	//head
@@ -41,13 +41,21 @@ module.exports = function(app) {
 	auth.use(bodyParser.urlencoded({ extended:true }));
 	//passport neeeded
 	auth.use(passport.initialize());
+	//auth.use(function(req,res,next){
+		//console.log('before');
+		//next();
+	//});
 	auth.use(passport.session());
+	//auth.use(function(req,res,next){
+		//console.log('worked');
+		//next();
+	//});
 	auth.use(flash());
 
 	require('./config/passport')(passport);
 
 
 	//router
-	var router = require('./routers/newauth_route');
+	var router = require('./controller');
 	auth.use('/', router(passport));
 };
