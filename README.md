@@ -49,31 +49,35 @@ update-rc.d -f filename remove
 
 ### index.js
 
- * hook **handler** to **routes**
-
- * create **server**
-
- * `node index.js` to start
-
 ### server.js
 
-* hook **projects** to major **app**
+### project_folder/
 
-*  hook **routes** to **projects**
+* proj_name.js
 
-### routes/
+* controller.js
 
-* project_based_route.js
+* views/
 
-### handler/
+	> dynamic web page needed. sqlauth, mongoauth
 
-* folder_with_project_name
+* models/
 
-    > project_handler.js
+	> database related. sqlauth, mongoauath
+
+* public/
+
+	> static HTML file. HEXO blog
+
+* config/(optional)
+
+	> database and middleware configuration. sqlauth, mongoauth
 
 ## Module
 
 * Express
+
+* Q
 
 * Socket.io
 
@@ -82,6 +86,8 @@ update-rc.d -f filename remove
 * ejs/jade
 
 * mongoose
+
+* mysql
 
 ## Experience
 
@@ -133,6 +139,14 @@ sudo service mongod start
 * [*youtube*](https://www.youtube.com/watch?v=nN6gFQMr3yU)
 
 ## Log
+
+* 9/11/2015
+
+	* completed sqlauth. Find mongoauth cannot be start with sqlauth, because of DOUBLE passport.initial() will forget session.
+
+* 9/10/2015
+
+	* figure out how to struct SQL related MVC by combining Promise theory and mysql module.
 
 * 9/7/2015
 	
@@ -187,8 +201,6 @@ sudo service mongod start
 * 6/15/2015
 
 ## ToDo list
-
-* add **function present link** in README
 
 * Finish **Socket.io** and **FireBase**
 
