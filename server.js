@@ -6,9 +6,10 @@ var morgan = require('morgan');
 
 /*project*/
 var test_project = require('./apitest/apitest');
-var mongo_auth = require('./mongoauth/mongoauth');
+//var mongo_auth = require('./mongoauth/mongoauth');
 //var sql_auth = require('./sqlauth/sqlauth');
 var blog_project = require('./hexoblog/hexoblog');
+var sio_project = require('./siochat/siochat');
 
 /*test field*/
 //var app = express();
@@ -23,7 +24,7 @@ var blog_project = require('./hexoblog/hexoblog');
 var Server = function(port) {
 
 	process.env.SERPORT = port.serPort || 8000;
-	process.env.SIOPORT = port.sioPort || 8100;
+	//process.env.SIOPORT = port.sioPort || 8100;
 
 	//Project based
 	this.app = express();
@@ -38,7 +39,8 @@ var Server = function(port) {
 	test_project(this.app);
 	blog_project(this.app);
 	//sql_auth(this.app);
-	mongo_auth(this.app);
+	//mongo_auth(this.app);
+	this.app = sio_project(this.app);
 };
 
 

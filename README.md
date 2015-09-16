@@ -20,6 +20,8 @@ Github: [ChenBlog](https://github.com/neilChenXie/ChenBlog)
 
 [www.chen-node.com/socketio](http://www.chen-node.com/socketio)
 
+* used bower to manage front-end packages
+
 ### Test
 
 > JSON Restful API test

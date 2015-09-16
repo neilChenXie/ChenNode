@@ -1,0 +1,29 @@
+<!doctype html>
+<html ng-app='myApp'>
+<head>
+	<title>Node Authenticate</title>
+	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+	<link ref="styleshhet" href="libs/font-awesome/css/font-awesome.min.css">
+	<style>
+		body 	{ padding-top: 80px; word-wrap:break-word; }
+	</style>
+	<script src="libs/angular/angular.min.js"></script>
+	<script src="libs/angular-route/angular-route.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/controller/page1Controller.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="page-header text-center">
+			<h1><span class="fa fa-anchor"></span>My first Angular App</h1>
+			<input type='text' name="name" ng-model="name">
+			<br><br>
+			{{ name }}
+			<br><br>
+			<a href='/page1'>Page1</a>
+			<a href='/page2'>Page2</a>
+		</div>
+	</div>
+	<div ng-view></div>
+</body>
+</html>

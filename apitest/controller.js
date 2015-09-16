@@ -3,7 +3,7 @@ var router = express.Router();//new router object
 
 /*router configuration*/
 router.get('/', function(req,res){
-	res.send("world");
+	res.send("hello world");
 	//console.log(req.cookies);
 });
 

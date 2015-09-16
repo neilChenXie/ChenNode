@@ -1,9 +1,12 @@
+var express = require('express');
+var path = require('path');
+var controller = require('./controller');
+
 module.exports = function(app) {
-	var express = require('express');
-	var sio  = require("socket.io");
-	var path = require('path');
-	var router = require('./routers/sio_route');
 	
+	var http = require('http').Server(app);
+	var io  = require("socket.io")(http);
+
 	//hook to server
 	sio = express();
 	app.use('/sio',sio);
@@ -16,11 +19,22 @@ module.exports = function(app) {
 	sio.use(express.static(path.join(__dirname,'public'))); //for html links
 	
 	//router
-	sio.use('/',router);
 	
 	//socket.io defination
-	var mySio = app.sio = new sio();
-	mySio.of('bird').on("connection",function(socket){
-		console.log('a new connected');
+	io.on('connect', function(socket){
+		console.log("a user is connected");
+		socket.broadcast.emit('user connected');
+		socket.on('chat message',function(msg){
+			//console.log('message: '+ msg);
+			socket.emit('chat message', msg);
+			socket.broadcast.emit('chat message', msg);
+		});
+		socket.on('disconnect', function(){
+			console.log('a user is disconnected');
+		});
 	});
+
+	sio.use('/',controller());
+
+	return http;
 };
