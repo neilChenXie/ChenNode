@@ -2,25 +2,49 @@
 
 ## Description
 
-* Carefully Designed Node.js server platform, based on Express.js, support multiple projects with different pathname.
+* Carefully Designed Node.js study platform, based on Express.js, support multiple projects with different pathname.
 * Provide good separation between projects to achieve easy to add/delete goal.
 
 *Key words:* **Node.js, Express, Socket.io, Passport BeagleBone**
 
 ## projects
 
+### Socket.io real-time chatroom
+
+[www.chen-node.com/sio/](http://www.chen-node.com/sio/)
+
+####setup
+
+```
+#install bower, which manages front-end public/libs/*
+sudo npm install bower -g
+#under siochat/
+bower install
+```
+
+#### experience
+
+* get familiar with Socket.io module
+
+### SQL/MongoDB authenticate
+
+####experience
+
+* design MVC structure based on mysql and Q module with promise theory
+
+* get familiar with Passport module and session manipulation
+
 ### Hexo blog system
 
->project is based on **Hexo** blog system.
+> project is based on **Hexo** blog system.
 
 [www.chen-node.com/blog](http://www.chen-node.com/blog)
 
 Github: [ChenBlog](https://github.com/neilChenXie/ChenBlog)
-### Real-time Chatroom with Socket.io
 
-[www.chen-node.com/socketio](http://www.chen-node.com/socketio)
+####experience
 
-* used bower to manage front-end packages
+* get familiar with Express static file system
 
 ### Test
 
@@ -51,7 +75,11 @@ update-rc.d -f filename remove
 
 ### index.js
 
+create Server object and start server
+
 ### server.js
+
+hook project when needed and config basic server parameters
 
 ### project_folder/
 
@@ -69,7 +97,7 @@ update-rc.d -f filename remove
 
 * public/
 
-	> static HTML file. HEXO blog
+	> static HTML file. ChenBlog, Socket.io
 
 * config/(optional)
 
@@ -141,6 +169,10 @@ sudo service mongod start
 * [*youtube*](https://www.youtube.com/watch?v=nN6gFQMr3yU)
 
 ## Log
+
+* 9/16/2015
+
+	* complete socket.io real-time chatroom draft.
 
 * 9/11/2015
 
