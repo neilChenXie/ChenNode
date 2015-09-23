@@ -58,6 +58,14 @@ Github: [ChenBlog](https://github.com/neilChenXie/ChenBlog)
 
 ![BeagleBone](http://www.chen-node.com/blog/photo/ChenNodeBBB.jpg)
 
+#### port transfering
+
+```bash
+#in /etc/rc.local
+iptables -A PREROUTING -t nat -i eth0 -p tcp -dport 80 -j REDIRECT --t 8000
+
+```
+
 #### Start app when booting
 
 ```bash
