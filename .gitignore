@@ -4,4 +4,3 @@
 *.log
 nohup.out
 /node_modules/
-/public/blog
